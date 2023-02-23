@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/553144cc3c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="index2.css">
+        <script src="index2.js"></script>
+        <link href="https://fonts.cdnfonts.com/css/spring-everyday" rel="stylesheet">
+        <title>Expense tracker app</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    </head>
+    <body
+        onload="getData(),     getBudget() ">
+        <!-- navbar -->
+
+        <header>
+            <div class="header">
+                <!-- <div style="display: flex; align-items: center; justify-content: center; margin-left: 5vw; margin-right: 5vw;"> -->
+                <!-- <div style="height: 8vh; width: 4.5vw; background-color: rgb(175, 213, 246);border-bottom-left-radius: 50%; border-top-left-radius: 50%;"> -->
+
+                <!-- </div> -->
+                    <nav class="navbar"> <h1>Logo</h1>
+                    <img src="assets/images/useraccount.png" style="height: 3vh; border-radius: 50%;">
+                </nav>
+                <!-- <div style="height: 8vh; width: 4.5vw; background-color: rgb(175, 213, 246);border-bottom-right-radius: 50%; border-top-right-radius: 50%;"> -->
+
+            <!-- </div> -->
+                <!-- </div> -->
+            </div>
+        </header>
+
+
+        <div
+            class="bg">
+            <!-- middle window -->
+            <div
+                class="middle">
+                <!-- wrapper for wallet-->
+                <div class="wallet-n-search-wrapper">
+                    <div class="wallet-n-search">
+                        <div class="walletname">
+                            <h1 style="font-family:sofia,sans-serif; font-size: 3.4vh;">Your Wallet</h1>
+                        </div>
+                        <div class="searchbar">
+                            <input placeholder="Search" style="width: 6vw;height: 100%;border: none;background-color: transparent;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                    <div class="wallet-n-search">
+                        <div class="balance">
+                        <h5 style="font-size: 3.4vh;">Balance</h5>
+
+                        </div>
+                        <div class="dollars" onclick="getBudget()">
+                            <div class="insidedollars">
+                                <!-- <h5 style="font-size: 3vh"></h5> -->
+                                <h5 id="totalbalance" onload="setBudgetColor()" style="color: rgb(0, 0, 0); font-size: 3vh;"></h5>
+                                <div id="toggleBudgetButton" type="submit" onclick="toggleEditBudget()">
+                                <i class="fa-regular fa-plus"></i>
+
+                                </div>
+                            </div>
+                            <div class="insideedit">
+                                
+                                <div id="editbar" style="display: none;margin-top: 4vh;">
+                                    <input type="text" id="updateBudget"  placeholder=" add Budget" style="width: 6vw;height: 100%;border: none;background-color: transparent;"/>
+                                    <!-- <div > -->
+                                            <i class="fa-regular fa-plus" onclick="updateBudget()"></i>
+                                            <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wallet-n-search">
+                        <div class="addcard">
+                            <div class="nameinput">
+                                <input id="nameTextField" placeholder="Name" style="width: 16vw;height: 100%;border: none;background-color: transparent;">
+                                
+                                <!-- <div class="searchbar">
+                                    <input placeholder="Search" style="width: 6vw;height: 100%;border: none;background-color: transparent;">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div> -->
+                            </div>
+                            <div class="amountinput">
+                                
+                                <input type='text' id="amtTextField" placeholder="Amount" style=" width: 16vw;height: 100%;border: none;background-color: transparent;">
+
+                            </div>
+                            <div class="addbutton" onclick="postData()">
+                                <i class="fa-regular fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div
+                id="cardsWrapper" class="cardswrapper"><!-- 
+                    
+                    <div class="card">
+                        <div class="left">
+                            <div class="iconpayment">
+                                <img class="billing" src="assets/images/bill.png">   
+                            </div>
+                            <div class="details">
+                                <div class="detailname">
+                                    
+                                </div>
+                                <div class="detaildate">
+                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="amountspent">
+                        
+                                            </div>
+                                            <div class="popbutton">
+                        
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                         -->
+
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!-- google sign in -->
+<!-- search bar working -->
+<!-- hide update budget -->
