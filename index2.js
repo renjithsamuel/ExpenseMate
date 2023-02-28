@@ -1,6 +1,16 @@
-let imgsrc = "assets/images/bill.png";
-let uriexpenses = "http://localhost:80/api/v1/expenses";
-let uritotalbudget = "http://localhost:80/api/v1/totalbudget"
+let imgsrcbill = "assets/images/bill.png";
+let imgsrcclose = "assets/images/close.png";
+
+const userID = localStorage.getItem('userID');
+console.log(userID);
+let uribudget = `http://localhost:80/api/v1/user/${userID}`
+let uriexpenses = `http://localhost:80/api/v1/expensebyuser/${userID}`; 
+let uriexpensepost = `http://localhost:80/api/v1/expenses`;
+// uritotalbudget = `http://localhost:80/api/v1/expenses/${userID}`
+
+
+
+
 
 
 const sendHttpRequest = (method, url, data) => {
@@ -32,7 +42,10 @@ const sendHttpRequest = (method, url, data) => {
 };
 
 function getData() {
+    console.log(userID);
+
     sendHttpRequest('GET', uriexpenses).then(responseData => {
+        // console.log(responseData);
         var cardWrap = document.getElementById('cardsWrapper');
         cardWrap.innerHTML = " ";
         // console.log(cardWrap);
@@ -43,61 +56,6 @@ function getData() {
     });
 }
 
-// function getData(){
-//     sendHttpRequest('GET', 'http://localhost:80/api/v1/expenses').then(responseData => {
-//         // console.log(responseData.data);
-//         const table = document.createElement('table');
-//         const tableBody = document.createElement('tbody');
-//         var row = document.createElement("tr");
-//         var name = document.createElement("th");
-//         var amt = document.createElement("th");
-//         var desc = document.createElement("th");
-
-//         name.innerHTML = "NAME";
-//         amt.innerHTML = "AMOUNT";
-//         desc.innerHTML = "DESCRIPTION";
-
-//         row.appendChild(name)
-//         row.appendChild(amt);
-//         row.appendChild(desc);
-
-//         tableBody.appendChild(row);
-
-//         name.setAttribute('border', '1px solid')
-//         amt.setAttribute('border', '1px solid')
-//         desc.setAttribute('border', '1px solid')
-
-//         responseData.data.forEach(element => {
-//             row = document.createElement("tr");
-//             name = document.createElement("td");
-//             amt = document.createElement("td");
-//             desc = document.createElement("td");
-//             name.innerHTML = element.name;
-//             amt.innerHTML = element.amount;
-//             desc.innerHTML = element.desc;
-
-//             row.appendChild(name);
-//             row.appendChild(amt);
-//             row.appendChild(desc);
-//             tableBody.appendChild(row);
-
-//             name.setAttribute('border', '1px solid')
-//             amt.setAttribute('border', '1px solid')
-//             desc.setAttribute('border', '1px solid')
-//         });
-//         // console.log(tableBody)
-//         table.appendChild(tableBody);
-//         document.body.appendChild(table);
-//         // table, td, th {
-//         //     border: 1px solid;
-//         //   }
-
-
-//         table.setAttribute('width', '100%')
-//         table.setAttribute('border-collapse', 'collapse')
-//         table.setAttribute('border', '1px solid')
-// });
-// };
 
 function createCard(element) {
     var cardWrap = document.getElementById('cardsWrapper');
@@ -105,29 +63,50 @@ function createCard(element) {
     var exp = element.amount;
     var name = element.name;
     // console.log(element);
+    var date = new Date(element.date); // Parse the string date into a date object
 
-    card.querySelector('.amountspent').innerHTML = exp;
+    let newdate = '';
+    if (date) {
+        const day = date.toLocaleDateString('en-US', {
+            day: 'numeric',});
+        const month = date.toLocaleDateString('en-US', {
+            month: 'short',});
+        const year = date.toLocaleDateString('en-US', {
+            year: 'numeric',});
+        newdate = day+" "+month+" "+year;
+    }
+    console.log(newdate);
+    card.querySelector('.amountspent').innerHTML = "Rs. " + exp;
     card.querySelector('.detailname').innerHTML = name;
+    card.querySelector('.detaildate').innerHTML = newdate;
     card.setAttribute("id", element._id);
     card.querySelector('.popbutton').setAttribute("onclick", `deleteData('${
-        element._id
+        card.id
     }')`);
-
+    
     cardWrap.appendChild(card);
 }
 
+
+
+
 async function getBudget() {
     let budgetdata;
-    await sendHttpRequest('GET', uritotalbudget).then(responseData => {
+    await sendHttpRequest('GET', uribudget).then(responseData => {
+        console.log(responseData);
+        var navbar = document.getElementById('navbar');
+        navbar.innerHTML = "Hi " + responseData.data.username;
         const totalbudget = document.getElementById('totalbalance');
-        totalbudget.innerHTML = "Rs. "+responseData.data;
-        budgetdata = responseData.data;
+        totalbudget.innerHTML = "Rs. "+responseData.data.amount;
+        budgetdata = responseData.data.amount;
         // console.log(budgetdata);
     })
     setBudgetColor();
     // console.log(budgetdata);
     return budgetdata;
 }
+
+
 
 async function updateBudget() {
     const updateBudget = document.getElementById('updateBudget').value;
@@ -142,7 +121,7 @@ async function updateBudget() {
         return;
     }
     console.log(updateBudget);
-    sendHttpRequest('PUT', uritotalbudget, {amount: updateBudget}).then(responseData => {
+    sendHttpRequest('PUT', uribudget, {amount: updateBudget}).then(responseData => {
         getBudget();
         console.log(responseData);
     }).catch((err) => {
@@ -153,21 +132,47 @@ async function updateBudget() {
     // await getBudget();
 }
 
+// let day = date.getDate();
+// console.log(day);
+
+// let month = date.getMonth();
+// console.log(month + 1);
+
+// let year = date.getFullYear();
+// console.log(year);
+
+// console.log(date);
+
+
 async function postData() { // const cardWrap = getData();
     const name = document.getElementById('nameTextField').value;
     const amt = document.getElementById('amtTextField').value;
+    let date = document.getElementById('dateField').value;
+
+    let newdate = '';
+    if(date){
+    const [year, month, day] = date.split('-');
+    newdate = `${year},${month},${day}`;
+    }else{
+        newdate = new Date();
+        newdate = newdate.toString();
+    }
+
+    if(amt == '' || name == '') {alert("please enter some values!");return;}
     if(isNaN(amt)) {
         alert("Please Enter Valid Values")
         return;
     }
-    // if(typeof amt != Number){console.log("Send correct values");return;}
-    // console.log(await getBudget());
+
     decreseBudget((await getBudget()) - amt);
-    await sendHttpRequest('POST', uriexpenses, {
+    await sendHttpRequest('POST', uriexpensepost, {
         name: name,
         amount: amt,
-        desc: ""
+        desc: "",
+        date : newdate,
+        user : userID
     }).then(responseData => { // console.log(responseData);
+        console.log(responseData);
         createCard(responseData);
         getBudget();
     }).catch(err => {
@@ -175,12 +180,13 @@ async function postData() { // const cardWrap = getData();
     });
     document.getElementById('nameTextField').value = '';
     document.getElementById('amtTextField').value = '';
+    document.getElementById('dateField').value = '';
 };
 
 
 function decreseBudget(updateBudget) {
     console.log(updateBudget);
-    sendHttpRequest('PUT', uritotalbudget, {amount: updateBudget}).then(responseData => {
+    sendHttpRequest('PUT', uribudget, {amount: updateBudget}).then(responseData => {
         getBudget();
         console.log(responseData);
     }).catch((err) => {
@@ -191,9 +197,9 @@ function decreseBudget(updateBudget) {
 async function deleteData(id) {
     const card = document.getElementById(id);
     // const name = namecont.innerHTML;
-    // console.log(id);
+    console.log(id);
     let amt;
-    await sendHttpRequest('DELETE', 'http://localhost:80/api/v1/expenses', {_id: id}).then((val) => {
+    await sendHttpRequest('DELETE', `http://localhost:80/api/v1/expense/${id}`).then((val) => {
         console.log(val.element.amount);
          amt = (val.element.amount)
         }).catch((err) => {
@@ -202,16 +208,10 @@ async function deleteData(id) {
         
         decreseBudget((await getBudget()) + amt);
          await getBudget();
-    // getData();
+    await getData();
     card.remove();
-}
+};
 
-
-// function deleteCard(name){
-//     const cardWrap = document.getElementById('cardsWrapper');
-//     let name = cardWrap.querySelector(".detailname");
-//     deleteData(name);
-// }
 
 function getcard() {
     let card = document.createElement("div");
@@ -223,7 +223,7 @@ function getcard() {
 
     let billing = document.createElement("img");
     billing.setAttribute("class", "billing");
-    billing.setAttribute("src", imgsrc);
+    billing.setAttribute("src", imgsrcbill);
     iconpayment.appendChild(billing);
 
     left.appendChild(iconpayment);
@@ -247,6 +247,10 @@ function getcard() {
     right.appendChild(amountspent);
     let popbutton = document.createElement("div");
     popbutton.setAttribute("class", "popbutton");
+    let closeimg = document.createElement("img");
+    closeimg.setAttribute("class", "closeimg");
+    closeimg.setAttribute("src", imgsrcclose);
+    popbutton.appendChild(closeimg);
     right.appendChild(popbutton);
     card.appendChild(right);
 
@@ -256,10 +260,15 @@ function getcard() {
 function toggleEditBudget() {
     var x = document.getElementById("editbar");
     if (x.style.display === "none") {
-        x.style.display = "block";
+        setTimeout( x.style.display = "block",1000);
+        x.style.animation = "moveRight 0.7s  ease-in-out forwards";
+
     } else {
-        x.style.display = "none";
+        x.style.animation = "moveLeft 0.7s  ease-in-out forwards";
+        setTimeout( x.style.display = "none",1000);
     }
+
+
 }
 
 function setBudgetColor(){
@@ -271,4 +280,26 @@ function setBudgetColor(){
     }
 }
 
-// console.log(getcard());
+
+
+function showLogoutDialog() {
+// var x = document.getElementById("toggleeditbutton");
+var y = document.getElementById('dollars');
+y.style.display = 'none';
+
+document.getElementById("logoutDialog").style.display = "block";
+document.getElementById("logoutBackdrop").style.display = "block";
+}
+
+function hideLogoutDialog() {
+    var y = document.getElementById('dollars');
+y.style.display = 'flex';
+document.getElementById("logoutDialog").style.display = "none";
+document.getElementById("logoutBackdrop").style.display = "none";
+}
+
+function logout() {
+// perform logout action here
+window.location.href = "login_page.html";
+hideLogoutDialog();
+}

@@ -13,28 +13,31 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     </head>
     <body
-        onload="getData(),     getBudget() ">
+        onload="getData(),getBudget() ">
         <!-- navbar -->
-
         <header>
             <div class="header">
-                <!-- <div style="display: flex; align-items: center; justify-content: center; margin-left: 5vw; margin-right: 5vw;"> -->
-                <!-- <div style="height: 8vh; width: 4.5vw; background-color: rgb(175, 213, 246);border-bottom-left-radius: 50%; border-top-left-radius: 50%;"> -->
-
-                <!-- </div> -->
-                    <nav class="navbar"> <h1>Logo</h1>
-                    <img src="assets/images/useraccount.png" style="height: 3vh; border-radius: 50%;">
+                    <nav class="navbar" > <h1 id="navbar"></h1>
+                    
+                    <div class="userprofile" onclick="showLogoutDialog()"><img src="assets/images/user-circle.svg" style="height: 6vh; border-radius: 50%;"></div>
                 </nav>
-                <!-- <div style="height: 8vh; width: 4.5vw; background-color: rgb(175, 213, 246);border-bottom-right-radius: 50%; border-top-right-radius: 50%;"> -->
-
-            <!-- </div> -->
-                <!-- </div> -->
             </div>
         </header>
 
+            <div id="logoutDialog" class="dialog-box" style="display: none;">
+                <p>Are you sure you want to log out?</p>
+
+                <div class="btns">
+                    <button id="yesbtn" onclick="logout()">Yes</button>
+                    <button id="nobtn"  onclick="hideLogoutDialog()">No</button>
+                </div>
+            </div>
+            <div id="logoutBackdrop" class="backdrop" style="display: none;"></div>
+
+
 
         <div
-            class="bg">
+            class="bg" >
             <!-- middle window -->
             <div
                 class="middle">
@@ -55,9 +58,8 @@
                         <h5 style="font-size: 3.4vh;">Balance</h5>
 
                         </div>
-                        <div class="dollars" onclick="getBudget()">
+                        <div class="dollars" id="dollars">
                             <div class="insidedollars">
-                                <!-- <h5 style="font-size: 3vh"></h5> -->
                                 <h5 id="totalbalance" onload="setBudgetColor()" style="color: rgb(0, 0, 0); font-size: 3vh;"></h5>
                                 <div id="toggleBudgetButton" type="submit" onclick="toggleEditBudget()">
                                 <i class="fa-regular fa-plus"></i>
@@ -67,10 +69,8 @@
                             <div class="insideedit">
                                 
                                 <div id="editbar" style="display: none;margin-top: 4vh;">
-                                    <input type="text" id="updateBudget"  placeholder=" add Budget" style="width: 6vw;height: 100%;border: none;background-color: transparent;"/>
-                                    <!-- <div > -->
+                                    <input type="text" id="updateBudget"  placeholder=" edit Budget" style="width: 6vw;height: 100%;border: none;background-color: transparent;"/>
                                             <i class="fa-regular fa-plus" onclick="updateBudget()"></i>
-                                            <!-- </div> -->
                                 </div>
                             </div>
                         </div>
@@ -79,16 +79,12 @@
                         <div class="addcard">
                             <div class="nameinput">
                                 <input id="nameTextField" placeholder="Name" style="width: 16vw;height: 100%;border: none;background-color: transparent;">
-                                
-                                <!-- <div class="searchbar">
-                                    <input placeholder="Search" style="width: 6vw;height: 100%;border: none;background-color: transparent;">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </div> -->
                             </div>
                             <div class="amountinput">
-                                
                                 <input type='text' id="amtTextField" placeholder="Amount" style=" width: 16vw;height: 100%;border: none;background-color: transparent;">
-
+                            </div>
+                            <div class="dateinput">
+                                <input type='date' id="dateField" pattern="\d{2}/\d{2}/\d{4}" placeholder="Date" style=" width: 9vw;height: 100%;border: none;background-color: transparent;">
                             </div>
                             <div class="addbutton" onclick="postData()">
                                 <i class="fa-regular fa-plus"></i>
@@ -97,8 +93,7 @@
                     </div>
                 </div>
                 
-                <div
-                id="cardsWrapper" class="cardswrapper"><!-- 
+                <div id="cardsWrapper" class="cardswrapper"><!-- 
                     
                     <div class="card">
                         <div class="left">
@@ -135,4 +130,3 @@
 
 <!-- google sign in -->
 <!-- search bar working -->
-<!-- hide update budget -->

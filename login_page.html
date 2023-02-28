@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="loginpage.js"></script>
+    <link rel="stylesheet" href="login_page.css">
+    <title>login-page</title>
+</head>
+<body>
+    <div class="body">
+        <div class="expensemate">
+            <img src="assets/images/zyro-image.png" height="200px">
+        </div>
+        <div class="middle">
+            <form action="">
+                <div class="inputuser">
+                    <div class="usernamewrp">
+                        <label for="username">username</label>
+                        <input type="text" id="username">
+                    </div>
+                    <div class="passwordwrp">
+                        <label for="password">password</label>
+                        <input type="password" id="password">
+                    </div>
+                    <div class="initalbudgetwrp">
+                        <label for="initalbudget">Initial Budget</label>
+                        <input type="text" id="initalbudget">
+                    </div>
+                </div>
+                <div class="buttoncontrols">
+                    <div class="uper">
+                        <div class="clearbtn">
+                            <button type="reset">clear</button>
+                        </div>
+                        <div class="loginbtn">
+                            <button type="button" onclick="loginUser()">login</button>
+                        </div>
+                    </div>
+                    <div class="loginbtn">
+                        <button type="button" onclick="postUser()">create new user</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
