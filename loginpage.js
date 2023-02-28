@@ -84,6 +84,7 @@ await sendHttpRequest('POST', uriloginstr, {
         // console.log(responseData);
         if (responseData && responseData.success) {
             // console.log(responseData.data._id);
+
             localStorage.setItem('userID', `${responseData.data._id}`);
 
             window.location.href = "index2.html"; // Replace with your main page URL
@@ -92,6 +93,9 @@ await sendHttpRequest('POST', uriloginstr, {
 
 
     }).catch(err => {
+        alert(err.message);
+        console.log(err);
+
         console.log(err);
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';

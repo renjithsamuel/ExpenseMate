@@ -159,6 +159,7 @@ async function postData() { // const cardWrap = getData();
     }
 
     if(amt == '' || name == '') {alert("please enter some values!");return;}
+    if(amt<0) {alert("Amount can't be negative");return};
     if(isNaN(amt)) {
         alert("Please Enter Valid Values")
         return;
