@@ -1,5 +1,6 @@
-let uricreateuser = "http://localhost:80/api/v1/users";
-let uriloginstr = "http://localhost:80/api/v1/login";
+let uricreateuser = "https://expensemate.onrender.com/api/v1/users";
+let uriloginstr = "https://expensemate.onrender.com/api/v1/login";
+
 
 
 

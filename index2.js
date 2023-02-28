@@ -3,9 +3,10 @@ let imgsrcclose = "assets/images/close.png";
 
 const userID = localStorage.getItem('userID');
 console.log(userID);
-let uribudget = `http://localhost:80/api/v1/user/${userID}`
-let uriexpenses = `http://localhost:80/api/v1/expensebyuser/${userID}`; 
-let uriexpensepost = `http://localhost:80/api/v1/expenses`;
+let uribudget = `https://expensemate.onrender.com/api/v1/user/${userID}`
+let uriexpenses = `https://expensemate.onrender.com/api/v1/expensebyuser/${userID}`; 
+let uriexpensepost = `https://expensemate.onrender.com/api/v1/expenses`;
+// let uridelete = `https://expensemate.onrender.com/api/v1/expense/${id}`;
 // uritotalbudget = `http://localhost:80/api/v1/expenses/${userID}`
 
 
@@ -200,7 +201,7 @@ async function deleteData(id) {
     // const name = namecont.innerHTML;
     console.log(id);
     let amt;
-    await sendHttpRequest('DELETE', `http://localhost:80/api/v1/expense/${id}`).then((val) => {
+    await sendHttpRequest('DELETE', `https://expensemate.onrender.com/api/v1/expense/${id}`).then((val) => {
         console.log(val.element.amount);
          amt = (val.element.amount)
         }).catch((err) => {
