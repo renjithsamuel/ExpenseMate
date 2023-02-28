@@ -302,6 +302,6 @@ document.getElementById("logoutBackdrop").style.display = "none";
 
 function logout() {
 // perform logout action here
-window.location.href = "login_page.html";
+window.location.href = "index.html";
 hideLogoutDialog();
 }
