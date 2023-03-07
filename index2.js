@@ -2,7 +2,7 @@ let imgsrcbill = "assets/images/bill.png";
 let imgsrcclose = "assets/images/close.png";
 
 const userID = localStorage.getItem('userID');
-console.log(userID);
+// console.log(userID);
 let uribudget = `https://expensemate.onrender.com/api/v1/user/${userID}`
 let uriexpenses = `https://expensemate.onrender.com/api/v1/expensebyuser/${userID}`; 
 let uriexpensepost = `https://expensemate.onrender.com/api/v1/expenses`;
@@ -43,7 +43,7 @@ const sendHttpRequest = (method, url, data) => {
 };
 
 function getData() {
-    console.log(userID);
+    // console.log(userID);
 
     sendHttpRequest('GET', uriexpenses).then(responseData => {
         // console.log(responseData);
@@ -76,7 +76,7 @@ function createCard(element) {
             year: 'numeric',});
         newdate = day+" "+month+" "+year;
     }
-    console.log(newdate);
+    // console.log(newdate);
     card.querySelector('.amountspent').innerHTML = "Rs. " + exp;
     card.querySelector('.detailname').innerHTML = name;
     card.querySelector('.detaildate').innerHTML = newdate;
@@ -94,7 +94,7 @@ function createCard(element) {
 async function getBudget() {
     let budgetdata;
     await sendHttpRequest('GET', uribudget).then(responseData => {
-        console.log(responseData);
+        // console.log(responseData);
         var navbar = document.getElementById('navbar');
         navbar.innerHTML = "Hi " + responseData.data.username;
         const totalbudget = document.getElementById('totalbalance');
@@ -118,15 +118,15 @@ async function updateBudget() {
     }
     // parseInt(updateBudget);
     if (updateBudget == '') {
-        console.log("send correct values");
+        alert("send correct values");
         return;
     }
-    console.log(updateBudget);
+    // console.log(updateBudget);
     sendHttpRequest('PUT', uribudget, {amount: updateBudget}).then(responseData => {
         getBudget();
-        console.log(responseData);
+        // console.log(responseData);
     }).catch((err) => {
-        console.log(err);
+        // console.log(err);
     });
     // console.log(typeof  updateBudget);
     // decreseBudget((await getBudget()) + updateBudget);
@@ -174,11 +174,11 @@ async function postData() { // const cardWrap = getData();
         date : newdate,
         user : userID
     }).then(responseData => { // console.log(responseData);
-        console.log(responseData);
+        // console.log(responseData);
         createCard(responseData);
         getBudget();
     }).catch(err => {
-        console.log(err);
+        // console.log(err);
     });
     document.getElementById('nameTextField').value = '';
     document.getElementById('amtTextField').value = '';
@@ -187,25 +187,25 @@ async function postData() { // const cardWrap = getData();
 
 
 function decreseBudget(updateBudget) {
-    console.log(updateBudget);
+    // console.log(updateBudget);
     sendHttpRequest('PUT', uribudget, {amount: updateBudget}).then(responseData => {
         getBudget();
-        console.log(responseData);
+        // console.log(responseData);
     }).catch((err) => {
-        console.log(err);
+        // console.log(err);
     });
 }
 
 async function deleteData(id) {
     const card = document.getElementById(id);
     // const name = namecont.innerHTML;
-    console.log(id);
+    // console.log(id);
     let amt;
     await sendHttpRequest('DELETE', `https://expensemate.onrender.com/api/v1/expense/${id}`).then((val) => {
-        console.log(val.element.amount);
+        // console.log(val.element.amount);
          amt = (val.element.amount)
         }).catch((err) => {
-            console.log(err.error);
+            // console.log(err.error);
         });
         
         decreseBudget((await getBudget()) + amt);
