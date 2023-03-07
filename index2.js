@@ -260,14 +260,18 @@ function getcard() {
 }
 
 function toggleEditBudget() {
+    var btn = document.getElementById('toggleBudgetButton');
+    btn.style.transform = 'rotate(45deg)';
     var x = document.getElementById("editbar");
     if (x.style.display === "none") {
         setTimeout( x.style.display = "block",1000);
-        x.style.animation = "moveRight 0.7s  ease-in-out forwards";
+        x.style.animation = "moveRight 0.4s  ease-in-out forwards";
+        btn.style.transform = 'rotate(45deg)';
 
     } else {
-        x.style.animation = "moveLeft 0.7s  ease-in-out forwards";
+        x.style.animation = "moveLeft 0.4s  ease-in-out forwards";
         setTimeout( x.style.display = "none",1000);
+        btn.style.transform = 'rotate(0deg)';
     }
 
 
