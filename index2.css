@@ -506,17 +506,21 @@ align-items: center;
     background-color: rgb(88, 88, 88);
 }
 
-@media only screen and (max-width: 1000px) {
+
+@media only screen and (max-width: 620px) {
     /* For mobile phones: */
     .navbar{
         width: auto;
+    }
+    .wallet-n-search-wrapper{
+        height: 70vh;
     }
     .wallet-n-search-wrapper, .card, .addcard {
       width: 100%;
     }
     .addcard{
 
-        margin-top: 3vh;
+        margin-top: 4vh;
         margin-right: 1vw;
         padding-bottom: 1vh;
     }
@@ -528,7 +532,8 @@ align-items: center;
         width: 17vw;
     }
     .addbutton{
-        width: 8vw;
+        margin-left: 1vw;
+        width: 9vw;
     }
     #dateField{
         width: 16vw;
@@ -540,7 +545,13 @@ align-items: center;
         width: 13vw;
     }
     .detaildate,.detailname{
-        margin-left: 4vw;
+        margin-left: 10vw;
+        width: 31vw;
+        
+    }
+    .amountspent{
+        margin-top: 2vh;
+        margin-right: 2vw;
     }
     .dollars{
         width: 22vw;
@@ -568,12 +579,95 @@ align-items: center;
          transition: 0.1s ease-in-out;
     }
     .dialog-box #yesbtn{
-        width: 6vw;
-        height: 4vh;
+        width: 8vw;
+        height: 5vh;
     }
     .dialog-box #nobtn{
-        width: 6vw;
-        height: 4vh;
+        width: 8vw;
+        height: 5vh;
     }
 }
+
+
+
+@media only screen and (max-width: 400px) {
+    /* For mobile phones: */
+    .navbar{
+        width: auto;
+    }
+    .wallet-n-search-wrapper{
+        height: 75vh;
+    }
+    .wallet-n-search-wrapper, .card, .addcard {
+      width: 100%;
+    }
+    .addcard{
+
+        margin-top: 4vh;
+        margin-right: 1vw;
+        padding-bottom: 1vh;
+    }
+    .middle{
+        width: 90%;
+        margin-left: 5vw;
+    }
+    .nameinput,.amountinput,.dateinput{
+        width: 17vw;
+    }
+    .addbutton{
+        width: 10vw;
+    }
+    #dateField{
+        width: 16vw;
+    }
+    .wallet-n-search-wrapper{
+        height: 35vh;
+    }
+    .searchbar{
+        width: 13vw;
+    }
+    .detaildate,.detailname{
+        margin-left: 10vw;
+        width: 31vw;
+        
+    }
+    .amountspent{
+        margin-top: 2vh;
+        margin-right: 2vw;
+    }
+    .dollars{
+        width: 28vw;
+        flex-wrap: wrap;
+    }
+    #toggleBudgetButton{
+        width: 5vw;
+        
+    }
+    #editbar{
+        display: flex;
+        background-color: aliceblue;
+        height: 4vh;
+        width: 14vw;
+        padding-top: 1vh;
+        padding-left: 2vh;
+        align-items: center;
+        justify-content: center;
+        border-radius:30px;
+        position: absolute;
+        top: 29vh;
+        border:1px solid transparent;
+        padding-bottom:0.6vh ;
+         box-shadow: 1px 1px 8px 1px #245e90;
+         transition: 0.1s ease-in-out;
+    }
+    .dialog-box #yesbtn{
+        width: 8vw;
+        height: 5vh;
+    }
+    .dialog-box #nobtn{
+        width: 8vw;
+        height: 5vh;
+    }
+}
+
 

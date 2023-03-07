@@ -79,6 +79,7 @@ input[type="password"] {
   background-color: #f5f5f5;
   color: #212121;
   transition: box-shadow 0.2s ease-out;
+  
 }
 
 input[type="text"]:focus,
@@ -146,10 +147,85 @@ button {
   margin-bottom: 2vh;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 620px) {
 
   .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5vw;
+  }
+
+  input{
+    margin-left: 15vw;
+    width: 60vw;
+  }
+  button{
+    margin-left: 10vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+  .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+  input{
+    margin-left: 15vw;
+    width: 60vw;
+  }
+  button{
+    margin-left: 10vw;
+  }
+
+
+
+}
+
+@media only screen and (max-width: 350px) {
+
+  .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin-left: 20vw;
+  }
+
+  input{
+    margin-left: 15vw;
     width: 80vw;
+  }
+
+  button{
+    margin-left: 15vw;
+  }
+
+}
+
+@media only screen and (max-width: 260px) {
+
+  .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin-left: 20vw;
+  }
+
+  input{
+    margin-left: 15vw;
+    width: 80vw;
+  }
+
+  button{
+    margin-left: 15vw;
   }
 
 }

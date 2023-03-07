@@ -38,7 +38,7 @@ async function postUser() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
 let initialbudget = document.getElementById('initalbudget').value;
-    console.log(username, password , initialbudget)
+    // console.log(username, password , initialbudget)
 if (username == '' || password == '' || initialbudget == '') {
     alert("please enter correct values!");
     return;
@@ -49,7 +49,7 @@ await sendHttpRequest('POST', uricreateuser, {
     password: password,
     amount : initialbudget
 }).then(responseData => { // console.log(responseData);
-    console.log(responseData);
+    // console.log(responseData);
         if (responseData && responseData.success) {
             localStorage.setItem('userID', (responseData.data._id).toString());
 
@@ -60,7 +60,7 @@ await sendHttpRequest('POST', uricreateuser, {
 
 }).catch(err => {
     alert(err.error);
-    console.log(err);
+    // console.log(err);
     document.getElementById('username').value = '';
     document.getElementById('password').value = '';
     document.getElementById('initialbudget').value = '';
@@ -95,9 +95,9 @@ await sendHttpRequest('POST', uriloginstr, {
 
     }).catch(err => {
         alert(err.message);
-        console.log(err);
+        // console.log(err);
 
-        console.log(err);
+        // console.log(err);
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
         document.getElementById('initialbudget').value = '';
