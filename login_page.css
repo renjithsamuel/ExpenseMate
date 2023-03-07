@@ -146,10 +146,11 @@ button {
   margin-bottom: 2vh;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 400px) {
 
   .middle{
     width: 80vw;
   }
 
 }
+
