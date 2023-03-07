@@ -507,6 +507,31 @@ align-items: center;
 }
 
 
+
+@media only screen and (max-width: 760px) {
+
+    .navbar{
+        font-size: 12px;
+    }
+    .dollars{
+        width: 18vw;
+        flex-wrap: wrap;
+
+    }
+
+    #toggleBudgetButton{
+        width: 3vw;
+    }
+
+    .detailname,.detaildate{
+        margin-left: 3vw;
+    }
+}
+
+
+
+
+
 @media only screen and (max-width: 620px) {
     /* For mobile phones: */
     .navbar{
@@ -590,84 +615,64 @@ align-items: center;
 
 
 
-@media only screen and (max-width: 400px) {
-    /* For mobile phones: */
-    .navbar{
-        width: auto;
-    }
-    .wallet-n-search-wrapper{
-        height: 75vh;
-    }
-    .wallet-n-search-wrapper, .card, .addcard {
-      width: 100%;
-    }
-    .addcard{
 
-        margin-top: 4vh;
-        margin-right: 1vw;
-        padding-bottom: 1vh;
-    }
-    .middle{
-        width: 90%;
-        margin-left: 5vw;
-    }
-    .nameinput,.amountinput,.dateinput{
-        width: 17vw;
-    }
-    .addbutton{
-        width: 10vw;
-    }
-    #dateField{
-        width: 16vw;
-    }
-    .wallet-n-search-wrapper{
-        height: 35vh;
-    }
-    .searchbar{
-        width: 13vw;
-    }
-    .detaildate,.detailname{
-        margin-left: 10vw;
-        width: 31vw;
-        
-    }
-    .amountspent{
-        margin-top: 2vh;
-        margin-right: 2vw;
+
+
+@media only screen and (max-width: 490px) {
+
+    .navbar{
+        font-size: 12px;
     }
     .dollars{
-        width: 28vw;
+        width: 35vw;
         flex-wrap: wrap;
-    }
-    #toggleBudgetButton{
-        width: 5vw;
-        
-    }
-    #editbar{
-        display: flex;
-        background-color: aliceblue;
-        height: 4vh;
-        width: 14vw;
-        padding-top: 1vh;
-        padding-left: 2vh;
-        align-items: center;
-        justify-content: center;
-        border-radius:30px;
-        position: absolute;
-        top: 29vh;
-        border:1px solid transparent;
-        padding-bottom:0.6vh ;
-         box-shadow: 1px 1px 8px 1px #245e90;
-         transition: 0.1s ease-in-out;
-    }
-    .dialog-box #yesbtn{
-        width: 8vw;
-        height: 5vh;
-    }
-    .dialog-box #nobtn{
-        width: 8vw;
-        height: 5vh;
+
     }
 }
 
 
+@media only screen and (max-width: 400px) {
+
+    .navbar{
+        font-size: 12px;
+    }
+    .dollars{
+        width: 32vw;
+        flex-wrap: wrap;
+
+    }
+      .detailname,.detaildate{
+        
+        margin-left: 15vw;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    .navbar{
+        font-size: 12px;
+    }
+    .dollars{
+        width: 40vw;
+        flex-wrap: wrap;
+
+    }
+    .addcard{
+        display: flex;
+        /* flex-direction: column; */
+        /* flex-wrap: wrap; */
+        /* height: 20vh; */
+        width: 90%;
+    }
+
+    .nameinput,.dateinput,.amountinput{
+        width: 10vw;
+    }
+    #dateField{
+        width: 8vw;
+    }
+    .detailname,.detaildate{
+        width: 25vw;
+        margin-left: 15vw;
+    }
+}
