@@ -19,7 +19,7 @@
             <div class="header">
                     <nav class="navbar" > <h1 id="navbar"></h1>
                     
-                    <div class="userprofile" onclick="showLogoutDialog()"><img src="assets/images/user-circle.svg" style="height: 6vh; border-radius: 50%;"></div>
+                    <div class="userprofile" onclick="showLogoutDialog()"><img src="assets/images/user-circle.svg" style="height: 6vh;max-width:100%; border-radius: 50%;"></div>
                 </nav>
             </div>
         </header>
@@ -84,7 +84,7 @@
                                 <input type='text' id="amtTextField" placeholder="Amount" style=" width: 16vw;height: 100%;border: none;background-color: transparent;">
                             </div>
                             <div class="dateinput">
-                                <input type='date' id="dateField" pattern="\d{2}/\d{2}/\d{4}" placeholder="Date" style=" width: 9vw;height: 100%;border: none;background-color: transparent;">
+                                <input type='date' id="dateField" pattern="\d{2}/\d{2}/\d{4}" placeholder="Date" style=" height: 100%;border: none;background-color: transparent;">
                             </div>
                             <div class="addbutton" onclick="postData()">
                                 <i class="fa-regular fa-plus"></i>

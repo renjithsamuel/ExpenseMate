@@ -30,6 +30,7 @@ header{
     margin-left:15vw ;
     margin-right: 15vw;
     background-color: rgb(177, 219, 255);;
+    transition: 0.2s ease-in-out;
 }
 .header:hover{
     box-shadow: 3px 3px 8px 3px rgb(163, 193, 218);
@@ -53,6 +54,7 @@ header{
     background-color: rgb(116, 177, 227);
     height: 5vh;
     width: 5vh;
+    transition: 0.2s ease-in-out;
 }
 .userprofile:hover{
     box-shadow:1px 1px 8px 1px rgb(0, 109, 182);
@@ -123,6 +125,7 @@ header{
     border:1px solid transparent;
     padding-bottom:0.6vh ;
      box-shadow: 2px 2px 8px 2px rgb(175, 213, 246);
+     transition: 0.2s ease-in-out;
 }
 
 .searchbar:hover{
@@ -165,12 +168,14 @@ header{
     justify-content: center;
     border-radius:50%;
     border:1px solid #dcdcdc;   
+    transition: 0.2s ease-in-out;
 }
 
 #toggleBudgetButton:hover{
     box-shadow: 2px 2px 8px 2px rgb(175, 213, 246);;
     transform: scale(1.003);
-    background-color: rgb(176, 231, 252);;
+    background-color: rgb(176, 231, 252);
+    /* transform: rotate(45deg); */
     /* padding: 3px; */
 }
 
@@ -199,6 +204,7 @@ header{
     border-radius:30px;
     border:1px solid transparent;
      box-shadow: 2px 2px 8px 2px rgb(175, 213, 246);
+     transition: 0.2s ease-in-out;
 }
 .nameinput:hover{
     box-shadow: 3px 3px 9px 3px rgb(175, 213, 246);
@@ -214,6 +220,7 @@ header{
     border-radius:30px;
     border:1px solid transparent;
      box-shadow: 2px 2px 8px 2px rgb(175, 213, 246);
+     transition: 0.2s ease-in-out;
 }
 .amountinput:hover{
         box-shadow: 3px 3px 9px 3px rgb(175, 213, 246);
@@ -230,9 +237,13 @@ header{
     padding-right: 2vw;
     border:1px solid transparent;
      box-shadow: 2px 2px 8px 2px rgb(175, 213, 246);
+     transition: 0.2s ease-in-out;
 }
 .dateinput:hover{
     box-shadow: 3px 3px 9px 3px rgb(175, 213, 246);
+}
+#dateField{
+    width: 9vw;
 }
 
 
@@ -263,9 +274,11 @@ header{
     justify-content: center;
     border-radius:30px;
     position: absolute;
+    top: 23vh;
     border:1px solid transparent;
     padding-bottom:0.6vh ;
      box-shadow: 1px 1px 8px 1px #245e90;
+     transition: 0.1s ease-in-out;
      /* animation: moveRight 0.7s  ease-in-out forwards; */
 }
 
@@ -285,7 +298,7 @@ header{
 
 @keyframes moveRight {
     0% {opacity: 0%;}
-    40% {opacity: 0%;}
+    40% {opacity: 10%;}
     60% {opacity: 70%;}
     75% {opacity: 100%;}
     from {left: 70vw}
@@ -311,7 +324,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    transition: 0.2s ease-in-out;
 }
 
 .addbutton:hover{
@@ -337,6 +350,7 @@ header{
     flex-direction: row;
     border-radius:30px;
     border:1px solid transparent;
+    transition: 0.2s ease-in-out;
 }
 .card:hover{
     box-shadow: 2px 2px 8px 2px rgb(116, 181, 238);;
@@ -402,6 +416,7 @@ header{
     display: flex;
     justify-content: center;
     align-items:  center;
+    transition: 0.2s ease-in-out;
 }
 
 .popbutton:hover{
@@ -466,6 +481,7 @@ align-items: center;
     border-radius: 10px;
     border: none;
     margin-right: 1vw;
+    transition: 0.2s ease-in-out;
 
 }
 
@@ -476,6 +492,7 @@ align-items: center;
     padding: 4px;
     border-radius: 10px;
     border: none;
+    transition: 0.2s ease-in-out;
 
 }
 
@@ -489,5 +506,74 @@ align-items: center;
     background-color: rgb(88, 88, 88);
 }
 
+@media only screen and (max-width: 1000px) {
+    /* For mobile phones: */
+    .navbar{
+        width: auto;
+    }
+    .wallet-n-search-wrapper, .card, .addcard {
+      width: 100%;
+    }
+    .addcard{
 
+        margin-top: 3vh;
+        margin-right: 1vw;
+        padding-bottom: 1vh;
+    }
+    .middle{
+        width: 90%;
+        margin-left: 5vw;
+    }
+    .nameinput,.amountinput,.dateinput{
+        width: 17vw;
+    }
+    .addbutton{
+        width: 8vw;
+    }
+    #dateField{
+        width: 16vw;
+    }
+    .wallet-n-search-wrapper{
+        height: 35vh;
+    }
+    .searchbar{
+        width: 13vw;
+    }
+    .detaildate,.detailname{
+        margin-left: 4vw;
+    }
+    .dollars{
+        width: 22vw;
+        flex-wrap: wrap;
+    }
+    #toggleBudgetButton{
+        width: 5vw;
+        
+    }
+    #editbar{
+        display: flex;
+        background-color: aliceblue;
+        height: 4vh;
+        width: 14vw;
+        padding-top: 1vh;
+        padding-left: 2vh;
+        align-items: center;
+        justify-content: center;
+        border-radius:30px;
+        position: absolute;
+        top: 29vh;
+        border:1px solid transparent;
+        padding-bottom:0.6vh ;
+         box-shadow: 1px 1px 8px 1px #245e90;
+         transition: 0.1s ease-in-out;
+    }
+    .dialog-box #yesbtn{
+        width: 6vw;
+        height: 4vh;
+    }
+    .dialog-box #nobtn{
+        width: 6vw;
+        height: 4vh;
+    }
+}
 
