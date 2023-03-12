@@ -508,13 +508,22 @@ align-items: center;
 
 
 
+@media only screen and (max-width: 1200px) {
+
+    .dollars{
+        width: 16vw;
+        flex-wrap: wrap;
+
+    }
+}
+
 @media only screen and (max-width: 760px) {
 
     .navbar{
         font-size: 12px;
     }
     .dollars{
-        width: 18vw;
+        width: 22vw;
         flex-wrap: wrap;
 
     }
@@ -579,9 +588,10 @@ align-items: center;
         margin-right: 2vw;
     }
     .dollars{
-        width: 22vw;
+        width: 26vw;
         flex-wrap: wrap;
     }
+
     #toggleBudgetButton{
         width: 5vw;
         
@@ -619,9 +629,17 @@ align-items: center;
 
 
 @media only screen and (max-width: 490px) {
-
+    .wallet-n-search{
+        font-size: 6px;
+    }
     .navbar{
         font-size: 12px;
+    }
+    .card{
+        font-size: 15px;
+    }
+    .middle{
+        font-size: 15px;
     }
     .dollars{
         width: 35vw;
@@ -632,28 +650,38 @@ align-items: center;
 
 
 @media only screen and (max-width: 400px) {
-
+    .wallet-n-search{
+        font-size: 6px;
+    }
     .navbar{
         font-size: 12px;
     }
     .dollars{
-        width: 32vw;
+        width: 37vw;
         flex-wrap: wrap;
 
     }
       .detailname,.detaildate{
-        
+        font-size: 10px;
         margin-left: 15vw;
+    }
+    .card{
+        font-size: 10px;
+    }
+    .middle{
+        font-size: 10px;
     }
 }
 
 @media only screen and (max-width: 320px) {
-
+    .wallet-n-search{
+        font-size: 6px;
+    }
     .navbar{
         font-size: 12px;
     }
     .dollars{
-        width: 40vw;
+        width: 42vw;
         flex-wrap: wrap;
 
     }
@@ -672,7 +700,63 @@ align-items: center;
         width: 8vw;
     }
     .detailname,.detaildate{
-        width: 25vw;
+        width: 25vw; font-size: 10px;
         margin-left: 15vw;
+    }
+    .card{
+        font-size: 10px;
+    }
+    .middle{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 250px) {
+    .wallet-n-search{
+        font-size: 6px;
+        display: flex;
+        flex-direction: column;
+    }
+    .walletname{
+        display: none;
+    }
+    .searchbar{
+        display: none;
+    }
+
+    .navbar{
+        font-size: 12px;
+    }
+    .dollars{
+        width: 50vw;
+        flex-wrap: wrap;
+
+    }
+    .addcard{
+        display: flex;
+        /* flex-direction: column; */
+        /* flex-wrap: wrap; */
+        /* height: 20vh; */
+        width: 90%;
+    }
+
+    .nameinput,.dateinput,.amountinput{
+        width: 10vw;
+    }
+    #dateField{
+        width: 8vw;
+    }
+    .detailname,.detaildate{
+        width: 25vw; font-size: 10px;
+        margin-left: 15vw;
+    }
+    .card{
+        font-size: 10px;
+    }
+    .card img{
+        width: 60px;
+    }
+    .middle{
+        font-size: 10px;
     }
 }
