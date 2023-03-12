@@ -1,9 +1,6 @@
 let uricreateuser = "https://expensemate.onrender.com/api/v1/users";
 let uriloginstr = "https://expensemate.onrender.com/api/v1/login";
 
-
-
-
 const sendHttpRequest = (method, url, data) => {
     const promise = new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
@@ -85,9 +82,7 @@ await sendHttpRequest('POST', uriloginstr, {
         // console.log(responseData);
         if (responseData && responseData.success) {
             // console.log(responseData.data._id);
-
             localStorage.setItem('userID', `${responseData.data._id}`);
-
             window.location.href = "index2.html"; // Replace with your main page URL
         } else {
         alert(responseData.message);}
@@ -96,11 +91,8 @@ await sendHttpRequest('POST', uriloginstr, {
     }).catch(err => {
         alert(err.message);
         // console.log(err);
-
-        // console.log(err);
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
         document.getElementById('initialbudget').value = '';
     });
-
 }

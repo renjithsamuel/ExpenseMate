@@ -467,12 +467,14 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+
 .btns{
     margin-top: 2vh;
     display: flex;
     justify-content: center;
     padding: 10px;
 }
+
 .dialog-box #yesbtn{
     height: 2vw;
     width: 3vw;
@@ -482,7 +484,6 @@ align-items: center;
     border: none;
     margin-right: 1vw;
     transition: 0.2s ease-in-out;
-
 }
 
 .dialog-box #nobtn{
@@ -496,11 +497,9 @@ align-items: center;
 
 }
 
-
 .dialog-box #yesbtn:hover{
     background-color: #21517a;;
 }
-
 
 .dialog-box #nobtn:hover{
     background-color: rgb(88, 88, 88);
@@ -509,31 +508,33 @@ align-items: center;
 
 
 @media only screen and (max-width: 1200px) {
-
     .dollars{
         width: 16vw;
         flex-wrap: wrap;
-
     }
 }
 
-@media only screen and (max-width: 760px) {
-
+@media only screen and (max-width: 1200px) {
     .navbar{
         font-size: 12px;
     }
     .dollars{
         width: 22vw;
         flex-wrap: wrap;
-
+    }
+    .addcard{
+        height: 9.5vh;
+        margin-bottom: 4vh;
     }
 
     #toggleBudgetButton{
         width: 3vw;
     }
-
     .detailname,.detaildate{
-        margin-left: 3vw;
+        margin-left: 0vw;
+    }
+    .iconpayment img{
+        width: 60px;
     }
 }
 
@@ -541,7 +542,7 @@ align-items: center;
 
 
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 800px) {
     /* For mobile phones: */
     .navbar{
         width: auto;
@@ -553,7 +554,6 @@ align-items: center;
       width: 100%;
     }
     .addcard{
-
         margin-top: 4vh;
         margin-right: 1vw;
         padding-bottom: 1vh;
@@ -579,7 +579,7 @@ align-items: center;
         width: 13vw;
     }
     .detaildate,.detailname{
-        margin-left: 10vw;
+        margin-left: 1vw;
         width: 31vw;
         
     }
@@ -594,7 +594,6 @@ align-items: center;
 
     #toggleBudgetButton{
         width: 5vw;
-        
     }
     #editbar{
         display: flex;
@@ -630,7 +629,7 @@ align-items: center;
 
 @media only screen and (max-width: 490px) {
     .wallet-n-search{
-        font-size: 6px;
+        font-size: 12px;
     }
     .navbar{
         font-size: 12px;
@@ -644,14 +643,17 @@ align-items: center;
     .dollars{
         width: 35vw;
         flex-wrap: wrap;
-
     }
+    .iconpayment img{
+        display: none;
+    }
+
 }
 
 
 @media only screen and (max-width: 400px) {
     .wallet-n-search{
-        font-size: 6px;
+        font-size: 12px;
     }
     .navbar{
         font-size: 12px;
@@ -663,7 +665,7 @@ align-items: center;
     }
       .detailname,.detaildate{
         font-size: 10px;
-        margin-left: 15vw;
+        margin-left: 5vw;
     }
     .card{
         font-size: 10px;
@@ -671,11 +673,14 @@ align-items: center;
     .middle{
         font-size: 10px;
     }
+    .iconpayment img{
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 320px) {
     .wallet-n-search{
-        font-size: 6px;
+        font-size: 10px;
     }
     .navbar{
         font-size: 12px;
@@ -683,16 +688,14 @@ align-items: center;
     .dollars{
         width: 42vw;
         flex-wrap: wrap;
-
     }
     .addcard{
         display: flex;
         /* flex-direction: column; */
         /* flex-wrap: wrap; */
-        /* height: 20vh; */
+        height: 8vh;
         width: 90%;
     }
-
     .nameinput,.dateinput,.amountinput{
         width: 10vw;
     }
@@ -700,8 +703,12 @@ align-items: center;
         width: 8vw;
     }
     .detailname,.detaildate{
-        width: 25vw; font-size: 10px;
-        margin-left: 15vw;
+        width: 25vw; 
+        font-size: 10px;
+        margin-left: 0vw;
+    }
+    .iconpayment img{
+        display: none;
     }
     .card{
         font-size: 10px;
@@ -713,7 +720,7 @@ align-items: center;
 
 @media only screen and (max-width: 250px) {
     .wallet-n-search{
-        font-size: 6px;
+        font-size: 9px;
         display: flex;
         flex-direction: column;
     }
@@ -753,8 +760,8 @@ align-items: center;
     .card{
         font-size: 10px;
     }
-    .card img{
-        width: 60px;
+    .iconpayment img{
+        display: none;
     }
     .middle{
         font-size: 10px;
