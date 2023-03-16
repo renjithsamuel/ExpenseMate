@@ -8,39 +8,49 @@ let uriexpenses = `https://expensemate.onrender.com/api/v1/expensebyuser/${userI
 let uriexpensepost = `https://expensemate.onrender.com/api/v1/expenses`;
 // let uridelete = `https://expensemate.onrender.com/api/v1/expense/${id}`;
 // uritotalbudget = `http://localhost:80/api/v1/expenses/${userID}`
+const sendHttpRequest = async (method, url, data) => {
+    let returndata;
+await fetch(url, {    
+  method: method,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+})
+  .then((response) => returndata =  response.json())
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+  return returndata;
+}
 
+// const sendHttpRequest = (method, url, data) => {
+//     const promise = new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest();
+//         xhr.open(method, url);
 
+//         xhr.responseType = 'json';
 
+//         if (data) {
+//             xhr.setRequestHeader('Content-Type', 'application/json');
+//         }
 
+//         xhr.onload = () => {
+//             if (xhr.status >= 400) {
+//                 reject(xhr.response);
+//             } else {
+//                 resolve(xhr.response);
+//             }
+//         };
 
+//         xhr.onerror = () => {
+//             reject('Something went wrong!');
+//         };
 
-const sendHttpRequest = (method, url, data) => {
-    const promise = new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open(method, url);
-
-        xhr.responseType = 'json';
-
-        if (data) {
-            xhr.setRequestHeader('Content-Type', 'application/json');
-        }
-
-        xhr.onload = () => {
-            if (xhr.status >= 400) {
-                reject(xhr.response);
-            } else {
-                resolve(xhr.response);
-            }
-        };
-
-        xhr.onerror = () => {
-            reject('Something went wrong!');
-        };
-
-        xhr.send(JSON.stringify(data));
-    });
-    return promise;
-};
+//         xhr.send(JSON.stringify(data));
+//     });
+//     return promise;
+// };
 
 function getData() {
     // console.log(userID);
@@ -292,13 +302,12 @@ function showLogoutDialog() {
 // var x = document.getElementById("toggleeditbutton");
 var y = document.getElementById('dollars');
 y.style.display = 'none';
-
 document.getElementById("logoutDialog").style.display = "block";
-document.getElementById("logoutBackdrop").style.display = "block";
+document.getElementById("logoutBackdrop").style.display = "block";  
 }
 
 function hideLogoutDialog() {
-    var y = document.getElementById('dollars');
+var y = document.getElementById('dollars');
 y.style.display = 'flex';
 document.getElementById("logoutDialog").style.display = "none";
 document.getElementById("logoutBackdrop").style.display = "none";
@@ -307,5 +316,26 @@ document.getElementById("logoutBackdrop").style.display = "none";
 function logout() {
 // perform logout action here
 window.location.href = "index.html";
-hideLogoutDialog();
+// hideLogoutDialog();
 }
+
+
+// search
+$(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#cardsWrapper .card").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+
+// $(document).ready(function(){
+//     $("myInput").on("keyup",function(){
+//         var val = $(this).val().toLowerCase();
+//         $("#cardsWrapper .card").filter(function(){
+//             console.log($(this).toggle($(this).text().toLowerCase().indexOf(value)))
+//         });
+//     });
+// });
